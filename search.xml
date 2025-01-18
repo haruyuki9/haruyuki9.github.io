@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>数据结构与算法（二）—— 线性表的链式表示及常用操作</title>
+      <link href="/2025/01/13/2025-01-13-%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%93%BE%E5%BC%8F%E8%A1%A8%E7%A4%BA%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
+      <url>/2025/01/13/2025-01-13-%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%93%BE%E5%BC%8F%E8%A1%A8%E7%A4%BA%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
+      
+        <content type="html"><![CDATA[<div class="note info no-icon simple"><p><strong>数据结构笔记目录：</strong><ol class="series-items"><li><a href="/2025/01/13/2025-01-13-%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%A4%BA%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" title="数据结构与算法（一）—— 线性表的顺序表示及常用操作">数据结构与算法（一）—— 线性表的顺序表示及常用操作</a></li><li><a href="/2025/01/13/2025-01-13-%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%93%BE%E5%BC%8F%E8%A1%A8%E7%A4%BA%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" title="数据结构与算法（二）—— 线性表的链式表示及常用操作">数据结构与算法（二）—— 线性表的链式表示及常用操作</a></li></ol></p></div><h1 id="还没写，懒癌发作嘞，占个坑明天写（主要是想测试一下系列文章功能能不能正常显示）"><a href="#还没写，懒癌发作嘞，占个坑明天写（主要是想测试一下系列文章功能能不能正常显示）" class="headerlink" title="还没写，懒癌发作嘞，占个坑明天写（主要是想测试一下系列文章功能能不能正常显示）"></a>还没写，懒癌发作嘞，占个坑明天写（主要是想测试一下系列文章功能能不能正常显示）</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> 链表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据结构与算法（一）—— 线性表的顺序表示及常用操作</title>
+      <link href="/2025/01/13/2025-01-13-%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%A4%BA%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
+      <url>/2025/01/13/2025-01-13-%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%A4%BA%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
+      
+        <content type="html"><![CDATA[<div class="note info no-icon simple"><p><strong>数据结构笔记目录：</strong><ol class="series-items"><li><a href="/2025/01/13/2025-01-13-%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%A4%BA%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" title="数据结构与算法（一）—— 线性表的顺序表示及常用操作">数据结构与算法（一）—— 线性表的顺序表示及常用操作</a></li><li><a href="/2025/01/13/2025-01-13-%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%93%BE%E5%BC%8F%E8%A1%A8%E7%A4%BA%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" title="数据结构与算法（二）—— 线性表的链式表示及常用操作">数据结构与算法（二）—— 线性表的链式表示及常用操作</a></li></ol></p></div><h2 id="顺序表的构建"><a href="#顺序表的构建" class="headerlink" title="顺序表的构建"></a>顺序表的构建</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> max_Size 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>&#123;</span><br><span class="line">    ElemType elem[max_Size];</span><br><span class="line">    <span class="type">int</span> length;<span class="comment">//当前长度</span></span><br><span class="line">&#125;SqList;</span><br></pre></td></tr></table></figure><h3 id="Ex-1"><a href="#Ex-1" class="headerlink" title="Ex:1"></a>Ex:1</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> max_Size 100 <span class="comment">//宏定义最大长度</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>&#123;</span><br><span class="line">    <span class="type">char</span> ISBN[<span class="number">20</span>];</span><br><span class="line">    <span class="type">char</span> name[<span class="number">50</span>];</span><br><span class="line">    <span class="type">float</span> price;</span><br><span class="line">&#125;Book;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>&#123;</span><br><span class="line">    Book *add;<span class="comment">//存储空间基地址</span></span><br><span class="line">    <span class="type">int</span> length;<span class="comment">//当前图书个数</span></span><br><span class="line">&#125;SqList;<span class="comment">//这是一个存放图书信息的顺序表</span></span><br></pre></td></tr></table></figure><h3 id="EX-2：使用动态分配内存方式的顺序表"><a href="#EX-2：使用动态分配内存方式的顺序表" class="headerlink" title="EX:2：使用动态分配内存方式的顺序表"></a>EX:2：使用动态分配内存方式的顺序表</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> max_Size 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>&#123;</span><br><span class="line">    ElemType *elem;</span><br><span class="line">    <span class="type">int</span> length;<span class="comment">//当前长度</span></span><br><span class="line">&#125;SqList;</span><br><span class="line"><span class="comment">//主函数中内容</span></span><br><span class="line">SqList L;<span class="comment">//定义顺序表变量L</span></span><br><span class="line">L.elem = (ElemType*)<span class="built_in">malloc</span>(<span class="built_in">SizeOf</span>(ElemType)*max_Size);<span class="comment">//动态分配内存</span></span><br></pre></td></tr></table></figure><h2 id="顺序表的查找"><a href="#顺序表的查找" class="headerlink" title="顺序表的查找"></a>顺序表的查找</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">LocateElem</span><span class="params">(SqList *L,ElemType e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;L-&gt;length;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(L-&gt;elem[i] == e)&#123;</span><br><span class="line">    <span class="keyword">return</span> i<span class="number">+1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="顺序表的查找算法分析：平均查找长度ASL（Average-Search-Length）"><a href="#顺序表的查找算法分析：平均查找长度ASL（Average-Search-Length）" class="headerlink" title="顺序表的查找算法分析：平均查找长度ASL（Average Search Length）"></a>顺序表的查找算法分析：平均查找长度ASL（Average Search Length）</h3><p><strong>需要与给定值进行比较的关键字的个数的期望值（即查找次数的平均值）叫做查找算法的平均查找长度，用于分析查找算法的时间复杂度</strong></p><p><strong>ASL&#x3D;P1*N1+P2*N2+P3*N3…..</strong>(P为第i个记录被查找的概率，系数N为找到第i个元素须比较的次数)</p><p><strong>关于顺序表的查找算法，有：ASL&#x3D;P*0+P*1+…P*n(P&#x3D;1&#x2F;n)&#x3D;(n+1)&#x2F;2</strong>（查找次数从0到n次）</p><h2 id="顺序表的插入"><a href="#顺序表的插入" class="headerlink" title="顺序表的插入"></a>顺序表的插入</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">ListInsert_Sq</span><span class="params">(SqList *L,<span class="type">int</span> i，ElemType e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i&gt;L-&gt;length<span class="number">+1</span>||i&lt;<span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//i值不合法</span></span><br><span class="line">    <span class="keyword">if</span>(L-&gt;length == max_Size) <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//顺序表已满</span></span><br><span class="line">    <span class="keyword">for</span>(j=L-&gt;Length<span class="number">-1</span>;j&lt;i;j--)&#123;</span><br><span class="line">        L-&gt;elem[j<span class="number">+1</span>] = L-&gt;elem[j];</span><br><span class="line">        &#125;<span class="comment">//将元素依次向后移空出下标为i-1的位置</span></span><br><span class="line">    L-&gt;elem[i<span class="number">-1</span>] = e;</span><br><span class="line">    l-&gt;length++;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="顺序表的插入算法分析"><a href="#顺序表的插入算法分析" class="headerlink" title="顺序表的插入算法分析"></a>顺序表的插入算法分析</h3><p><strong>INS&#x3D;P*1+P*2+…P*n(P&#x3D;1&#x2F;n+1)&#x3D;n&#x2F;2</strong>（移动次数从0次到n次）</p><h2 id="顺序表的删除"><a href="#顺序表的删除" class="headerlink" title="顺序表的删除"></a>顺序表的删除</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">ListDelete</span><span class="params">(Sqlist *L,<span class="type">int</span> i,ElemType *e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i&gt;L-&gt;length||i&lt;<span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//i值不合法</span></span><br><span class="line">    <span class="keyword">if</span>(L-&gt;length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//顺序表为空</span></span><br><span class="line">    *e = L-&gt;elem[i<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">for</span>(j=i<span class="number">-1</span>;j&lt;L.length;j++)&#123;</span><br><span class="line">        L-&gt;elem[j] = L-&gt;elem[j<span class="number">+1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    L-&gt;length--;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="顺序表的插入算法分析-1"><a href="#顺序表的插入算法分析-1" class="headerlink" title="顺序表的插入算法分析"></a>顺序表的插入算法分析</h3><p><strong>DEL&#x3D;P*1+P*2+…P*(n-1)(P&#x3D;1&#x2F;n)&#x3D;(n-1)&#x2F;2</strong>（移动次数从0到(n-1)）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> 顺序表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>2024年度个人拍摄雪景几则</title>
+      <link href="/2025/01/11/2025-01-11-2024%E5%B9%B4%E5%BA%A6%E4%B8%AA%E4%BA%BA%E6%8B%8D%E6%91%84%E9%9B%AA%E6%99%AF%E5%87%A0%E5%88%99/"/>
+      <url>/2025/01/11/2025-01-11-2024%E5%B9%B4%E5%BA%A6%E4%B8%AA%E4%BA%BA%E6%8B%8D%E6%91%84%E9%9B%AA%E6%99%AF%E5%87%A0%E5%88%99/</url>
+      
+        <content type="html"><![CDATA[<div class="note info no-icon simple"><p>最近没在学习什么新技术，但是还是想充实一下这个博客，于是选了几张今年拍摄的一些好看的雪景。这样一来自己在没有雪的想看雪的时候翻一翻博客，还能籍此缓解夏天没有雪看的寂寞心情<br>封面图是中秋节在学校附近的公园放烟花时候拍的，感觉闪闪的很漂亮，就拿来做封面了。</p></div><h2 id="这两张是年初时在老家拍摄的"><a href="#这两张是年初时在老家拍摄的" class="headerlink" title="这两张是年初时在老家拍摄的"></a>这两张是年初时在老家拍摄的</h2><h3 id="我特别喜欢待在这条小山路上看雪！耳机里放着春卷饭冬日的歌，待在没什么人的小角落，望着眼前一片白茫茫，感觉格外的宁静。"><a href="#我特别喜欢待在这条小山路上看雪！耳机里放着春卷饭冬日的歌，待在没什么人的小角落，望着眼前一片白茫茫，感觉格外的宁静。" class="headerlink" title="我特别喜欢待在这条小山路上看雪！耳机里放着春卷饭冬日的歌，待在没什么人的小角落，望着眼前一片白茫茫，感觉格外的宁静。"></a>我特别喜欢待在这条小山路上看雪！耳机里放着春卷饭冬日的歌，待在没什么人的小角落，望着眼前一片白茫茫，感觉格外的宁静。</h3><img class="inline-img" src="/images/yuki_Img_1.jpg" style="height:250px" /><img class="inline-img" src="/images/yuki_Img_2.jpg" style="height:250px" /><h2 id="这几张是今年年末在学校拍的"><a href="#这几张是今年年末在学校拍的" class="headerlink" title="这几张是今年年末在学校拍的"></a>这几张是今年年末在学校拍的</h2><h3 id="呼和浩特的冬天真是暖的出奇，今年冬天一共就下了三场雪，所以在同样的机位拍了三张"><a href="#呼和浩特的冬天真是暖的出奇，今年冬天一共就下了三场雪，所以在同样的机位拍了三张" class="headerlink" title="呼和浩特的冬天真是暖的出奇，今年冬天一共就下了三场雪，所以在同样的机位拍了三张"></a>呼和浩特的冬天真是暖的出奇，今年冬天一共就下了三场雪，所以在同样的机位拍了三张</h3><img class="inline-img" src="/images/yuki_Img_3.jpg" style="height:180px" /><img class="inline-img" src="/images/yuki_Img_4.jpg" style="height:180px" /><img class="inline-img" src="/images/yuki_Img_5.jpg" style="height:180px" /><h3 id="雪一次比一次大了！（话说不这样才奇怪吧）"><a href="#雪一次比一次大了！（话说不这样才奇怪吧）" class="headerlink" title="雪一次比一次大了！（话说不这样才奇怪吧）"></a>雪一次比一次大了！（话说不这样才奇怪吧）</h3><h2 id="这张是我最喜欢的一张！"><a href="#这张是我最喜欢的一张！" class="headerlink" title="这张是我最喜欢的一张！"></a>这张是我最喜欢的一张！</h2><h3 id="无人的角落，飘落的黄叶，以雪为衣的大树，感觉心里暖暖的。冬天最吸引人的正是在于刺骨的寒风衬托出的暖洋洋的感觉啊！脖子上的围巾，室内的暖气，寒风浸透的全身被各种各样暖洋洋的东西一点点的焐热的感觉真是太棒了！"><a href="#无人的角落，飘落的黄叶，以雪为衣的大树，感觉心里暖暖的。冬天最吸引人的正是在于刺骨的寒风衬托出的暖洋洋的感觉啊！脖子上的围巾，室内的暖气，寒风浸透的全身被各种各样暖洋洋的东西一点点的焐热的感觉真是太棒了！" class="headerlink" title="无人的角落，飘落的黄叶，以雪为衣的大树，感觉心里暖暖的。冬天最吸引人的正是在于刺骨的寒风衬托出的暖洋洋的感觉啊！脖子上的围巾，室内的暖气，寒风浸透的全身被各种各样暖洋洋的东西一点点的焐热的感觉真是太棒了！"></a>无人的角落，飘落的黄叶，以雪为衣的大树，感觉心里暖暖的。冬天最吸引人的正是在于刺骨的寒风衬托出的暖洋洋的感觉啊！脖子上的围巾，室内的暖气，寒风浸透的全身被各种各样暖洋洋的东西一点点的焐热的感觉真是太棒了！</h3><p><img src="/images/yuki_Img_6.jpg" alt="yuki_Img_6" title="yuki_Img_6"></p><h2 id="并不是雪景的论外一则"><a href="#并不是雪景的论外一则" class="headerlink" title="并不是雪景的论外一则"></a>并不是雪景的论外一则</h2><h3 id="是工程实训课上用数控铣打出来的亚克力片片，感觉像是琥珀把雪花包在里面了一样，很喜欢"><a href="#是工程实训课上用数控铣打出来的亚克力片片，感觉像是琥珀把雪花包在里面了一样，很喜欢" class="headerlink" title="是工程实训课上用数控铣打出来的亚克力片片，感觉像是琥珀把雪花包在里面了一样，很喜欢"></a>是工程实训课上用数控铣打出来的亚克力片片，感觉像是琥珀把雪花包在里面了一样，很喜欢</h3><p><img src="/images/yuki_Img_7.jpg" alt="yuki_Img_6" title="yuki_Img_7"></p><h3 id="突然发现这篇博客插了好多图片，图都是存在项目里的，本来想到博客应该用不到很多图所以就全存本地了，这下看来不得不搞个图床来存了"><a href="#突然发现这篇博客插了好多图片，图都是存在项目里的，本来想到博客应该用不到很多图所以就全存本地了，这下看来不得不搞个图床来存了" class="headerlink" title="突然发现这篇博客插了好多图片，图都是存在项目里的，本来想到博客应该用不到很多图所以就全存本地了，这下看来不得不搞个图床来存了"></a>突然发现这篇博客插了好多图片，图都是存在项目里的，本来想到博客应该用不到很多图所以就全存本地了，这下看来不得不搞个图床来存了</h3><h3 id="以上！希望2025能拍到更多好看的雪景！！"><a href="#以上！希望2025能拍到更多好看的雪景！！" class="headerlink" title="以上！希望2025能拍到更多好看的雪景！！"></a>以上！希望2025能拍到更多好看的雪景！！</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 雪景 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 雪景 </tag>
+            
+            <tag> 照片 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于在Hexo的butterfly插件中添加本地搜索功能的方法及细节补充</title>
+      <link href="/2025/01/09/2025-01-09-1st/"/>
+      <url>/2025/01/09/2025-01-09-1st/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>因为看到的所有教程都漏掉了一小步，可能会有人对此纠结很久，遂决定新写一篇文章，同时作为本站的第一篇文章，希望能帮到其他被此问题困扰的朋友</p></blockquote><h2 id="博客根目录安装插件"><a href="#博客根目录安装插件" class="headerlink" title="博客根目录安装插件"></a>博客根目录安装插件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure><h2 id="配置插件"><a href="#配置插件" class="headerlink" title="配置插件"></a>配置插件</h2><h3 id="在根目录-config-yml文件添加如下文本"><a href="#在根目录-config-yml文件添加如下文本" class="headerlink" title="在根目录_config.yml文件添加如下文本"></a>在根目录_config.yml文件添加如下文本</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure><h3 id="将-config-butterfly-yml文件中的search段中的use键的值改为local-search"><a href="#将-config-butterfly-yml文件中的search段中的use键的值改为local-search" class="headerlink" title="将_config.butterfly.yml文件中的search段中的use键的值改为local_search"></a>将_config.butterfly.yml文件中的search段中的use键的值改为local_search</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="string">use：local_search</span></span><br><span class="line">    <span class="comment"># 注意！！一定要在“：”和“Local_search”中间添加空格</span></span><br><span class="line">    <span class="comment"># 所有的教程都少了这一步</span></span><br></pre></td></tr></table></figure><h3 id="将-config-butterfly-yml文件中的local-search段中的enable键的值改为true，如没有此键则添加"><a href="#将-config-butterfly-yml文件中的local-search段中的enable键的值改为true，如没有此键则添加" class="headerlink" title="将_config.butterfly.yml文件中的local_search段中的enable键的值改为true，如没有此键则添加"></a>将_config.butterfly.yml文件中的local_search段中的enable键的值改为true，如没有此键则添加</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="string">enable：true</span></span><br></pre></td></tr></table></figure><h2 id="检查是否设置成功"><a href="#检查是否设置成功" class="headerlink" title="检查是否设置成功"></a>检查是否设置成功</h2><h3 id="本地检查"><a href="#本地检查" class="headerlink" title="本地检查"></a>本地检查</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo cl;hexo s</span><br></pre></td></tr></table></figure><h3 id="检查无误后推送至仓库"><a href="#检查无误后推送至仓库" class="headerlink" title="检查无误后推送至仓库"></a>检查无误后推送至仓库</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo cl ; hexo generate ; hexo deploy</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> 技术 </tag>
+            
+            <tag> butterfly </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
