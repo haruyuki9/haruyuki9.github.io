@@ -14,3 +14,15 @@
 [data-theme="dark"] #page-header::before {
   background: transparent !important;
 }
+
+/* 黑幕 */
+
+.heimu {
+  color: black; /* 初始文本颜色 */
+  background-color: black;
+  transition: color 0.15s linear;
+}
+
+.heimu:hover {
+  color: white; /* 鼠标悬停时的文本颜色 */
+}
