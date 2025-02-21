@@ -74,6 +74,8 @@
   justify-content: flex-start;
 }
 .info-contain-down{
+  display: flex;
+  flex-direction: column;
   flex: 0 0 auto;
   height: 600px;
   overflow-y: auto;
