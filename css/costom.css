@@ -119,6 +119,8 @@
   background-image: url('../images/cover_16.jpg');
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   filter: brightness(0.95);
 }
 #content-area h1 ,#content-area h2{
