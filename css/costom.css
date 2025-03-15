@@ -126,3 +126,11 @@
 #content-area h1 ,#content-area h2{
   margin:  3px 0 3px;
 }
+.collection-container{
+  overflow-x: auto;
+  width: 100%;
+  white-space: nowrap;
+}
+.collection-container::-webkit-scrollbar-thumb {
+  background: #ffeebe; /* 滑块颜色 */
+}
