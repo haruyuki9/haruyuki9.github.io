@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    .body {
+      background-color: red;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .ruby {
+      position:absolute;
+      bottom: 80%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 60px;
+    }
+    .text {
+      position: relative;
+      color: white;
+      font-size: 100px;
+      white-space: nowrap;
+    }
+    #apple:hover {
+      color: red;
+    }
+    #apple{
+      color: white;
+      transition: color 0.25s linear;
+    }
+    #apple a {
+      text-decoration: none;
+      color: skyblue;
+    }
+    #formContainer {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px; 
+    }
+    input {
+      width: 200px;
+      padding: 8px;
+    }
+    button {
+      padding: 8px 16px;
+    }
+    #song:hover{
+      color: aqua;
+    }
+    #song{
+      color: skyblue;
+      transition: color 0.2s linear;
+    }
+  </style>
+</head>
+<body>
+  <div class="body" id="body">
+    <div style="margin:auto">
+      <span class="text">L你知道吗，死神只吃</span>
+      <span class="text"><span id="apple" onclick="changeText()">苹果</span>
+        <span class="ruby" id="what">What</span>
+      </span>
+    </div>
+    <div id="formContainer" style="margin-top:auto;"></div>
+  </div>
+</body>
+<script>
+
+    let flag = false;
+
+    function changeText() {
+    let apple = document.getElementById('apple');
+    apple.innerHTML = `<a href="https://www.bilibili.com/video/BV13x411r7GV/?spm_id_from=333.337.search-card.all.click&vd_source=e2ccd399c864d0ff152a3d728148037d" target="_blank" id = "song">Apple.com</a>`;
+    let what = document.getElementById('what');
+    what.innerText = 'Where';
+    let container = document.getElementById('body');
+    if (!flag) {
+      flag = true;
+      let formContainer = document.getElementById('formContainer');
+      
+      const form = document.createElement('form');
+      const input = document.createElement('input');
+      form.id = 'my_form';
+      input.type = "text";
+      input.placeholder = "好吃的苹果🍎"; 
+      input.id = 'my_input';
+      input.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault(); // 阻止默认提交
+          button.click();
+  }
+});
+      
+      const button = document.createElement('button');
+      button.type = "button";
+      button.textContent = "Click";
+      button.id = "submitButton";
+
+      button.addEventListener('click', function() {
+      const inputValue = document.getElementById('my_input').value;
+      if (inputValue === "监狱") {
+        window.open("/871049711663/4170706C65/", "_blank");
+      }
+      else if(inputValue === "苹果" ||inputValue === "Apple" ||inputValue === "apple" ){
+        alert("苹果很好吃哦");
+      }
+      else if(inputValue === "65112112108101" || inputValue === '651121121081014699111109'){
+        alert("还是ASCII码高手");
+      }
+      else if(inputValue === 'Apple.com'){
+        alert("Apple.com是歌名哦");
+      }
+      else if(inputValue === '硫克'){
+        alert("硫克，是喜欢吃苹果的死神的名字吧");
+      }
+      else if(inputValue === '陈曦'){
+        alert("怎么会是你自己的名字呢");
+      }
+      else if(inputValue === '吴宇航'){
+        alert("！？你知道的太多了！");
+      }
+});
+      form.appendChild(input);
+      form.appendChild(button);
+      formContainer.appendChild(form);
+      
+      
+    }
+  }
+</script>
+</html>
