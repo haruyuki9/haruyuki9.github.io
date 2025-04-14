@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <style>
     .body {
-      background-color: red;
+      background-color: #e30013;
       height: 100vh;
       display: flex;
       flex-direction: column;
+      margin: 0;
     }
     .ruby {
       position:absolute;
@@ -23,7 +24,7 @@
       white-space: nowrap;
     }
     #apple:hover {
-      color: red;
+      color: #e30013;
     }
     #apple{
       color: white;
@@ -76,6 +77,11 @@
     let flag = false;
 
     function changeText() {
+
+    let body = document.getElementById('body');
+    body.style.backgroundImage = "url('./apple.jpg')";
+    body.style.backgroundSize = "cover";
+
     let apple = document.getElementById('apple');
     apple.innerHTML = `<a href="https://www.bilibili.com/video/BV13x411r7GV/?spm_id_from=333.337.search-card.all.click&vd_source=e2ccd399c864d0ff152a3d728148037d" target="_blank" id = "song">Apple.com</a>`;
     let what = document.getElementById('what');
@@ -105,7 +111,7 @@
 
       button.addEventListener('click', function() {
       const inputValue = document.getElementById('my_input').value;
-      if (inputValue === "监狱") {
+      if (inputValue === "监狱" || inputValue === "刑務所") {
         window.open("/871049711663/4170706C65/", "_blank");
       }
       else if(inputValue === "苹果" ||inputValue === "Apple" ||inputValue === "apple" ){
