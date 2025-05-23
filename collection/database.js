@@ -96,5 +96,9 @@ const album = [
     {
         id : "2025_album",
         src : "../images/collection/zero-go.jpg"
+    },
+    {
+        id : "2025_album",
+        src : "../images/collection/iyowa3.jpg"
     }
 ]
