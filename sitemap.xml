@@ -233,6 +233,13 @@
   </url>
   
   <url>
+    <loc>https://blog.haruyuki.site/tags/%E9%93%BE%E8%A1%A8/</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.haruyuki.site/tags/%E9%A1%BA%E5%BA%8F%E8%A1%A8/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -240,7 +247,7 @@
   </url>
   
   <url>
-    <loc>https://blog.haruyuki.site/tags/%E9%93%BE%E8%A1%A8/</loc>
+    <loc>https://blog.haruyuki.site/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -262,13 +269,6 @@
   
   <url>
     <loc>https://blog.haruyuki.site/tags/%E3%83%9C%E3%83%BC%E3%82%AB%E3%83%AD%E3%82%A4%E3%83%89/</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.haruyuki.site/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -312,14 +312,14 @@
   </url>
   
   <url>
-    <loc>https://blog.haruyuki.site/categories/Vocaloid/</loc>
+    <loc>https://blog.haruyuki.site/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.haruyuki.site/categories/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://blog.haruyuki.site/categories/Vocaloid/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
